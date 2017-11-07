@@ -1,0 +1,40 @@
+Build:
+-----
+
+gcc -w -g gdb_ex.c -o gdb_ex
+
+Configure:
+---------
+
+ulimit -c unlimited
+
+Debugging weird values:
+----------------------
+
+gdb gdb_ex
+b produceWeirdValue
+r
+s
+p arr
+p num
+n
+p arr[i]
+
+Abort:
+-----
+
+Core files contains the state of your program when it crashed :-(
+
+gdb gdb_ex core
+bt
+frame 5
+list 
+list 25:35
+
+Seg Fault:
+---------
+
+gdb gdb_ex core
+bt
+frame 0
+print ptr
